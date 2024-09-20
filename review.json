@@ -1,0 +1,28 @@
+[   {
+        "user_id" : "1",
+        "user_name" : "name",
+        "review_desc" : "This is a placeholder for review",
+        "review_rating" : "4.5",
+        "app_id" : "1"
+    },{
+        "user_id" : "2",
+        "user_name" : "name",
+        "review_desc" : "This is a placeholder for review",
+        "review_rating" : "3.5",
+        "app_id" : "1"
+    },
+    {
+        "user_id" : "3",
+        "user_name" : "Lenqin",
+        "review_desc" : "This is a placeholder for review",
+        "review_rating" : "4.0",
+        "app_id" : "1"
+    },
+    {
+        "user_id" : "4",
+        "user_name" : "Jesus",
+        "review_desc" : "This is a placeholder for review",
+        "review_rating" : "3.0",
+        "app_id" : "1"
+    }
+]

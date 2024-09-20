@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model apps {
+  app_id          Int     @id @default(autoincrement())
+  app_name        String  @db.VarChar(255)
+  app_icon        String? @db.VarChar(255)
+  app_description String? @db.Text
+  apk_url         String? @db.VarChar(255)
+  apk_size        BigInt?
+  category        String  @db.VarChar(255)
+  app_publisher        String  @db.VarChar(255)
+  app_rating      String  @db.VarChar(255)
+
+  @@index([app_name], map: "indx_app_name")
+}
+
+model downloads {
+  download_id        Int       @id @default(autoincrement())
+  user_id            Int?
+  app_id             Int?
+  download_tiemstamp DateTime? @db.DateTime(0)
+
+  @@index([app_id], map: "app_id")
+  @@index([user_id], map: "user_id")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model reviews {
+  review_id          Int     @id @default(autoincrement())
+  user_id            Int?
+  app_id             Int?
+  rating             Int?
+  review_description String? @db.Text
+
+  @@index([app_id], map: "indx_app_id")
+  @@index([user_id], map: "indx_user_id")
+}
+
+model users {
+  user_id   Int     @id @default(autoincrement())
+  user_email   String @unique 
+  user_name String  @db.VarChar(255)
+  user_icon String? @db.VarChar(255)
+}
+
+model image {
+  image_url  String @id @unique
+  app_id  Int?
+}

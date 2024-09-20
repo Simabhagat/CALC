@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mesh-gradient: linear-gradient(45deg,
+                #aa7eee 20%,   /* lightest purple */
+                #6333ae 40%,  /* medium purple */
+                #4440c0 70%,  /* dark purple */
+                #2a2263 100%  /* darkest purple */
+                );
+}
+.mesh{
+  background: var(--mesh-gradient);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1); /* semi-transparent white */
+  backdrop-filter: blur(10px); /* blur effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* subtle shadow */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* light border */
+  @apply py-2 px-2 rounded-md h-auto;
+}
+
+  
+  .link {
+    position: relative;
+    display: inline-block;
+    color: white; /* Tailwind's blue-500 */
+    font-size: 1.125rem; /* Tailwind's text-lg */
+    font-weight: 600; /* Tailwind's font-semibold */
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+   
+    background-color: #3b82f6;
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  .link.clicked{
+    color: #3b82f6;
+  }
+  
+  .link.clicked::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+.scroll-content{
+    width: 100%;
+}
+
+
+/* Add this in your global CSS file */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, and Opera */
+}
+.border{
+    @apply border-2 border-white border-solid
+}
+
+/* Tailwind classes added */
+.app-download-page {
+  @apply flex flex-col gap-8 p-6;
+  background: var(--mesh-gradient);
+  background-size: cover;
+  height: 100%;
+}
+
+.app-header {
+  @apply flex flex-row gap-4 items-start;
+}
+
+.app-icon {
+  @apply w-24 h-24 rounded-md;
+}
+
+.app-info {
+  @apply flex flex-col gap-2;
+}
+
+.app-title {
+  @apply text-2xl font-semibold;
+}
+
+.app-developer {
+  @apply text-sm text-green-50;
+}
+
+.app-ratings {
+  @apply flex items-center gap-1;
+}
+
+.download-button {
+  @apply mt-4 text-white bg-green-500;
+}
+
+.app-screenshots {
+  @apply flex flex-col gap-4;
+}
+
+.screenshots-wrapper {
+  @apply flex gap-4 overflow-x-scroll;
+}
+
+.screenshot {
+  @apply w-60 h-96 rounded-sm object-cover;
+}
+
+.app-description,
+.app-reviews{
+  @apply flex flex-col gap-4;
+ 
+}
+
+.review {
+  @apply p-4 bg-gray-100 rounded-lg shadow-md;
+  color: rgba(0, 0, 0, 0.8);
+  
+}
+
+.review h4 {
+  @apply font-semibold;
+}
+
+.review p {
+  @apply text-sm text-gray-600;
+}
+
+
+.login-prompt{
+  @apply flex flex-col items-center justify-center gap-3 p-24 mt-28;
+}
+
+.login-prompt-text{
+  @apply text-2xl font-semibold;
+}
+
+.signin-btn, .signup-btn{
+  @apply w-fit opacity-75;
+  background-color: hwb(241 4% 38% / 0.39);
+}
+
+.sidebar{
+  @apply flex flex-col w-fit pt-0 -mt-0 -ml-24 sm:ml-0
+}
+
+.sidebar-wrapper{
+  @apply flex flex-col align-middle gap-2 ml-16 p-4 sm:gap-4 sm:ml-0 sm:p-0 sm:py-2;
+}
+
+.sidebar-item{
+  @apply flex flex-row flex-nowrap items-center max-w-[400px] ml-0 p-0 
+}
+
+.sidebar-text{
+  @apply font-serif text-lg sm:text-2xl ;
+}
+
+.dashboard-body{
+  @apply relative flex flex-col h-screen  ;
+  background: var(--mesh-gradient);
+  background-size: cover;
+}
+
+.dashbord-container{
+  @apply flex flex-row;
+}
+
+.window{
+  @apply flex flex-col w-screen h-screen -mt-14 overflow-y-scroll rounded-lg
+}
+
+.wrapper{
+  @apply flex flex-col items-start gap-2 w-auto border
+}
+
+.input-wrapper{
+@apply flex flex-col w-[170px] md:w-[500px] lg:w-[750px] xl:w-[1024px] border
+}
